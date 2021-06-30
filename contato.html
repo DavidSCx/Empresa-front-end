@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nós</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <style>
+        .fundo {
+            background-color: #d5fa06;
+        }
+
+        .navbar {
+            background-color: #d5fa06;
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        footer {
+            background-color: #d5fa06;
+            padding: 25px;
+        }
+
+        .imagem {
+            margin-left: 0%;
+        }
+
+        .footer {
+            align-items: center;
+        }
+
+        .meio {
+            background-color: #d5fa06;
+        }
+
+        .row {
+            text-align: center;
+            margin-left: 15%;
+        }
+
+        .botao {
+            margin-left: 15%;
+        }
+
+        .navbar {
+            background-color: #d5fa06;
+            margin-bottom: 0;
+            border-radius: 0;
+            font-family: "Arial black";
+            font-style: normal;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="fundo">
+    <div class="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d5fa06;">
+            <img class="rounded-circle"
+                src="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\back-end\empresa\src\main\resources\static\logo.png"
+                width="70" height="70">
+            <button type="button" class="navbar-brand btn btn-warning">
+                <a
+                    href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\index.html">Inicio</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <button type="button" class="navbar-brand btn btn-warning">
+                            <a
+                                href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\acesso.html">Cadastro
+                                de Colaboradores <span class="sr-only">(current)</span></a>
+                            <button type="button" class="navbar-brand btn btn-warning">
+                                <a
+                                    href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\lista2.html">Lista
+                                    de Colaboradores</a>
+                                <button type="button" class="navbar-brand btn btn-warning">
+                                    <a
+                                        href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\contato.html">Contato</a>
+                                    <button type="button" class="navbar-brand btn btn-warning">
+                                        <a
+                                            href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\sobre.html">Sobre
+                                            Nós</a>
+                    </div>
+                </div>
+        </nav>
+    </div>
+    <div class="meio">
+        <section class="mb-4">
+
+
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Nos Contate</h2>
+
+            <p class="text-center w-responsive mx-auto mb-5">
+                Você tem alguma pergunta? Por favor, não hesite em nos contatar diretamente. Nossa equipe lhe responderá
+                muito em Breve.</p>
+
+            <div class="row">
+
+
+                <div class="col-md-9 mb-md-0 mb-5 align-items=center">
+                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+
+                        <div class="row">
+
+
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="name" name="name" class="form-control">
+                                    <label for="name" class="">Nome</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="email" name="email" class="form-control">
+                                    <label for="email" class="">Email</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <label for="subject" class="">Titulo do Assunto</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-12">
+
+                                <div class="md-form">
+                                    <textarea type="text" id="message" name="message" rows="2"
+                                        class="form-control md-textarea"></textarea>
+                                    <label for="message">Sua Menssagem</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                    <div class="botao">
+                        <a class="btn btn-primary"
+                            onclick="document.getElementById('contact-form').submit();">Enviar</a>
+                        <a class="btn btn-primary" href="/">Voltar</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        </form>
+    </div>
+    <footer class="container-fluid text-center">
+        <div class="imagem">
+            <img src="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\back-end\empresa\src\main\resources\static\logo.png"
+                class="img-responsive" style="width:20%" alt="Image">
+        </div>
+        <div class="footer">
+            <p>Arena Vigilancia Privada Ltda</p>
+            <p>arenavigilante@gmail.com</p>
+            <p>Telefone: 48 9 8899-2211</p>
+            <p>Rua São Pedro n° 903 - Areias - São José - SC</p>
+            </p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

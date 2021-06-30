@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre nós</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <style>
+    .fundo {
+      background-color: #d5fa06
+    }
+    .navbar {
+      background-color: #d5fa06;
+      margin-bottom: 0;
+      border-radius: 0;
+      font-family: "Arial black";
+      font-style: normal;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body class="fundo">
+  <div class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d5fa06;">
+      <img class="rounded-circle"
+        src="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\back-end\empresa\src\main\resources\static\logo.png"
+        width="70" height="70">
+      <button type="button" class="navbar-brand btn btn-warning">
+        <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\index.html">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <button type="button" class="navbar-brand btn btn-warning">
+              <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\acesso.html">Cadastro
+                de Colaboradores <span class="sr-only">(current)</span></a>
+              <button type="button" class="navbar-brand btn btn-warning">
+                <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\lista2.html">Lista
+                  de Colaboradores</a>
+                <button type="button" class="navbar-brand btn btn-warning">
+                  <a
+                    href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\contato.html">Contato</a>
+                  <button type="button" class="navbar-brand btn btn-warning">
+                    <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\sobre.html">Sobre
+                      Nós</a>
+          </div>
+        </div>
+    </nav>
+  </div>
+  </br>
+  <div id="app" class="container-sm">
+    <div id="lista" vif="podeExibirLista">
+      <button class="btn btn-success" v-on:click="criarNovo()">Novo Contato</button>
+    </div>
+    </br>
+    <div id="detalhes" v-if="podeExibirDetalhes">
+      <h2>{{empresa.nome}}</h2>
+      <h2>{{empresa.tipo}}</h2>
+      <h2>{{empresa.telefone}}</h2>
+      <button class="btn btn-success" v-on:click="exibirLista()">Voltar</button>
+  </div>
+    <div id="cadastro" v-if="podeExibirFormulario">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" name="nome" id="nome" v-model="empresa.nome" />
+      </div>
+      <div class="form-group">
+        <label for="nome">Telefone</label>
+        <input type="text" class="form-control" name="telefone" id="telefone" v-model="empresa.telefone" />
+      </div>
+      <div class="form-group ">
+        <label for="tipo">Cargo</label>
+        <select class="form-control" name="tipo" id="tipo" v-model="empresa.tipo">
+          <option value="Vigilante"> Vigilante</option>
+          <option value="Porteiro"> Porteiro</option>
+          <option value="Faxineira"> Faxineira</option>
+          <option value="Cozinheira"> Cozinheira</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" v-on:click="cadastrar()">Salvar</button>
+      <button class="btn btn-success" v-on:click="exibirLista()">Voltar</button>
+      <div class="form-group">
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item" v-for="item in lista">
+            <button class="btn btn-link" v-on:click="mostrarDetalhes(item.id)">{{item.nome}}</button>
+            <button class="btn btn-warning btn-block" v-on:click="editar(item.id)">Editar</button>
+            <button class="btn btn-danger btn-block" v-on:click="deletar(item.id)">Apagar</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+
+  <script>
+    var app = new Vue({
+
+      el: '#app',
+      data: {
+        podeExibirlista: false,
+        podeExibirDetalhes: false,
+        podeExibirFormulario: false,
+        lista: [],
+        empresa: {}
+
+
+      },
+      methods: {
+
+        exibirLista: function () {
+          this.podeExibirlista = true;
+          this.podeExibirDetalhes = false;
+          this.podeExibirFormulario = false;
+
+        },
+
+        exibirDetalhes: function () {
+          this.podeExibirlista = false;
+          this.podeExibirDetalhes = true;
+          this.podeExibirFormulario = false;
+
+        },
+        exibirformulario: function () {
+          this.podeExibirlista = false;
+          this.podeExibirDetalhes = false;
+          this.podeExibirFormulario = true;
+
+        },
+        listarTodos: function () {
+
+          fetch('http://localhost:8080/')
+            .then((resposta) => resposta.json())
+            .then((objetoLista) => {
+              console.log(objetoLista);
+              this.lista = objetoLista;
+            })
+
+        },
+        lerDetalhes: function (id) {
+          fetch('http://localhost:8080/detalhes/' + id)
+            .then((resposta) => resposta.json())
+            .then((objetoEmpresa) => {
+              console.log(objetoEmpresa);
+              this.empresa = objetoEmpresa;
+            })
+
+        },
+        deletar: function (id) {
+          fetch('http://localhost:8080/deletar/' + id)
+            .then(() => {
+              this.listarTodos();
+              this.empresa = {};
+            })
+        },
+        cadastrar: function () {
+          const headers = new Headers({ 'content-Type': 'application/json' });
+          fetch('http://localhost:8080/adicionar',
+            {
+              method: 'POST',
+              headers,
+              body: JSON.stringify(this.empresa)
+            })
+            .then((resposta) => resposta.json())
+            .then((objetoEmpresa) => {
+              console.log(objetoEmpresa);
+              this.empresa = objetoEmpresa;
+              this.listarTodos();
+              this.exibirDetalhes();
+            });
+        },
+        limparcampos: function () {
+          this.empresa = {};
+
+        },
+        criarNovo: function () {
+          this.limparcampos();
+          this.exibirformulario();
+        },
+        editar: function (id) {
+          this.lerDetalhes(id);
+          this.exibirformulario();
+        },
+        mostrarDetalhes: function (id) {
+          this.lerDetalhes(id);
+          this.exibirDetalhes();
+        }
+
+      },
+
+      created: function () {
+        this.listarTodos();
+        this.exibirLista();
+
+
+
+      }
+    });
+  </script>
+</body>
+
+</html>
