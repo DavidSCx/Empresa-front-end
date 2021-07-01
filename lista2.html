@@ -11,6 +11,9 @@
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
   <style>
+    .text{
+      text-align: center;
+    }
     .fundo {
       background-color: #d5fa06
     }
@@ -61,6 +64,7 @@
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item" v-for="item in lista">
           <button class="btn btn-link" v-on:click="mostrarDetalhes(item.id)">{{item.nome}}</button>
+          <p class="text">{{item.tipo}}</p>
         </li>
       </ul>
     </div>

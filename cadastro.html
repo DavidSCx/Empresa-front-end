@@ -67,7 +67,7 @@
       <h2>{{empresa.telefone}}</h2>
       <button class="btn btn-success" v-on:click="exibirLista()">Voltar</button>
   </div>
-    <div id="cadastro" v-if="podeExibirFormulario">
+    <div id="cadastro" >
       <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" id="nome" v-model="empresa.nome" />
