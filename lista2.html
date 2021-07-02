@@ -31,33 +31,37 @@
 
 <body class="fundo">
   <div class="navbar">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d5fa06;">
-      <img class="rounded-circle"
-        src="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\back-end\empresa\src\main\resources\static\logo.png"
-        width="70" height="70">
-      <button type="button" class="navbar-brand btn btn-warning">
-        <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\index.html">Inicio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <button type="button" class="navbar-brand btn btn-warning">
-              <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\acesso.html">Cadastro
-                de Colaboradores <span class="sr-only">(current)</span></a>
-              <button type="button" class="navbar-brand btn btn-warning">
-                <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\lista2.html">Lista
-                  de Colaboradores</a>
-                <button type="button" class="navbar-brand btn btn-warning">
-                  <a
-                    href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\contato.html">Contato</a>
-                  <button type="button" class="navbar-brand btn btn-warning">
-                    <a href="C:\Users\David\Desktop\Programacao Web\projeto vuejs\agenda front end\pagina\sobre.html">Sobre
-                      Nós</a>
-          </div>
-        </div>
-    </nav>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d5fa06;">
+          <img class="rounded-circle"
+              src="imagem\logo.png"
+              width="70" height="70">
+          <button type="button" class="navbar-brand btn btn-warning">
+              <a
+                  href="index.html">Inicio</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                      <button type="button" class="navbar-brand btn btn-warning">
+                          <a
+                              href="https://trabalhopw.surge.sh/acesso.html">Cadastro
+                              de Colaboradores <span class="sr-only">(current)</span></a>
+                          <button type="button" class="navbar-brand btn btn-warning">
+                              <a
+                                  href="https://trabalhopw.surge.sh/lista2.html">Lista
+                                  de Colaboradores</a>
+                              <button type="button" class="navbar-brand btn btn-warning">
+                                  <a
+                                      href="https://trabalhopw.surge.sh/contato.html">Contato</a>
+                                  <button type="button" class="navbar-brand btn btn-warning">
+                                      <a
+                                          href="https://trabalhopw.surge.sh/sobre.html">Sobre
+                                          Nós</a>
+                  </div>
+              </div>
+      </nav>
   </div>
   <div id="app" class="container">
     <div class="form-group">
@@ -110,7 +114,7 @@
           },
           listarTodos: function () {
 
-            fetch('http://localhost:8080/')
+            fetch('https://empresa-trabalho.herokuapp.com/')
               .then((resposta) => resposta.json())
               .then((objetoLista) => {
                 console.log(objetoLista);
@@ -119,7 +123,7 @@
 
           },
           lerDetalhes: function (id) {
-            fetch('http://localhost:8080/detalhes/' + id)
+            fetch('https://empresa-trabalho.herokuapp.com/detalhes/' + id)
               .then((resposta) => resposta.json())
               .then((objetoEmpresa) => {
                 console.log(objetoEmpresa);
@@ -128,7 +132,7 @@
 
           },
           deletar: function (id) {
-            fetch('http://localhost:8080/deletar/' + id)
+            fetch('https://empresa-trabalho.herokuapp.com/deletar/' + id)
               .then(() => {
                 this.listarTodos();
                 this.empresa = {};
@@ -136,7 +140,7 @@
           },
           cadastrar: function () {
             const headers = new Headers({ 'content-Type': 'application/json' });
-            fetch('http://localhost:8080/adicionar',
+            fetch('https://empresa-trabalho.herokuapp.com/adicionar',
               {
                 method: 'POST',
                 headers,
